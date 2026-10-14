@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Review - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/faculty.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Faculty Project Review</h1>
+                <div class="subtitle">Academic evaluation, source inspection, and status management</div>
+            </div>
+            <div>
+                <a href="/faculty/projects.html" class="btn btn-secondary">&larr; Back to Project List</a>
+            </div>
+        </div>
+
+        <div id="project-details-card" class="card" style="max-width: 880px; margin: 0 auto 2rem auto;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div>
+                    <h2 id="detail-title" style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 0.25rem;">Loading Title...</h2>
+                    <div style="font-size: 0.88rem; color: var(--text-muted);">
+                        Student: <strong id="detail-student" style="color: #334155;">-</strong>
+                    </div>
+                </div>
+                <div id="detail-status"></div>
+            </div>
+
+            <!-- Metadata table -->
+            <div style="background-color: #f8fafc; border: 1px solid var(--border-light); border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.88rem;">
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Submission Date</div>
+                    <div id="detail-created" style="font-weight: 600;">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Last Updated</div>
+                    <div id="detail-updated" style="font-weight: 600;">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Student Code Visibility</div>
+                    <div id="detail-src-vis">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Deployed Link Visibility</div>
+                    <div id="detail-dep-vis">-</div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div style="margin-bottom: 1.75rem;">
+                <h4 class="card-title">Abstract &amp; Project Description</h4>
+                <div id="detail-description" style="font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; color: #334155;">-</div>
+            </div>
+
+            <!-- Live Deployed Link -->
+            <div style="margin-bottom: 1.75rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem;">Deployed Application</h4>
+                <div id="detail-deployed-section"></div>
+            </div>
+
+            <!-- Source Code File -->
+            <div style="margin-bottom: 1.75rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem;">Source Code Archive</h4>
+                <div id="detail-download-section"></div>
+            </div>
+
+            <!-- Faculty Evaluation & Status Management Form -->
+            <div style="padding-top: 1.5rem; border-top: 2px solid var(--primary-light);">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">
+                    Faculty Project Approval Decision
+                </h4>
+
+                <div id="status-update-alert" class="alert d-none"></div>
+
+                <form id="status-update-form" style="display: flex; gap: 1rem; align-items: center; max-width: 450px;">
+                    <select id="project-status-select" class="form-control" style="font-weight: 600;">
+                        <option value="SUBMITTED">SUBMITTED (Pending Evaluation)</option>
+                        <option value="APPROVED">APPROVED (Verified)</option>
+                        <option value="REJECTED">REJECTED (Requires Revision)</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Update Status</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            FacultyApp.initProjectDetails();
+        });
+    </script>
+</body>
+</html>

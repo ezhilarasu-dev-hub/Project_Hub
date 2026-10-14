@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Projects - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/student.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Institutional Projects</h1>
+                <div class="subtitle">Browse student academic submissions and your personal projects</div>
+            </div>
+            <div>
+                <a href="/student/project-form.html" class="btn btn-primary">+ Submit Project</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- Filter Bar -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+                <div style="flex: 1; min-width: 240px;">
+                    <input type="text" id="project-search-input" class="form-control" placeholder="Search by title, keywords, or student...">
+                </div>
+                <div style="width: 220px;">
+                    <select id="project-view-filter" class="form-control">
+                        <option value="my">My Projects Only</option>
+                        <option value="all">Approved Campus Projects</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Title</th>
+                            <th>Student</th>
+                            <th>Code Visibility</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projects-table-tbody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: #64748b; padding: 2rem;">Loading projects...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            StudentApp.initProjectsList();
+        });
+    </script>
+</body>
+</html>

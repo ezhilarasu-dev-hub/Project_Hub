@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/faculty.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Faculty Dashboard</h1>
+                <div class="subtitle">Institutional Oversight &amp; Student Project Governance</div>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+                <button id="reindex-btn" class="btn btn-secondary" onclick="FacultyApp.triggerReindex()">
+                    &#x21bb; Reindex Senior Projects (RAG)
+                </button>
+                <a href="/faculty/projects.html" class="btn btn-primary">Review All Projects</a>
+            </div>
+        </div>
+
+        <div id="reindex-alert" class="alert d-none"></div>
+
+        <!-- Institutional Statistics Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Projects</div>
+                <div class="stat-value" id="stat-total-projects">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Registered Students</div>
+                <div class="stat-value" id="stat-total-students">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Submitted (Pending)</div>
+                <div class="stat-value" id="stat-submitted-projects" style="color: #92400e;">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Approved Projects</div>
+                <div class="stat-value" id="stat-approved-projects" style="color: #166534;">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Rejected Projects</div>
+                <div class="stat-value" id="stat-rejected-projects" style="color: #991b1b;">0</div>
+            </div>
+        </div>
+
+        <!-- Recent Projects Table -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 class="card-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">Recent Submissions</h3>
+                <a href="/faculty/projects.html" class="btn btn-secondary btn-sm">View Full Project List &rarr;</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Title</th>
+                            <th>Student</th>
+                            <th>Date Submitted</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-projects-tbody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: #64748b; padding: 2rem;">Loading institutional submissions...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            FacultyApp.initDashboard();
+        });
+    </script>
+</body>
+</html>

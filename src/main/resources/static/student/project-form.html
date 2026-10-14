@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Submission - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/student.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1 id="form-heading">Submit Academic Project</h1>
+                <div class="subtitle">Complete the project details below for institutional faculty review</div>
+            </div>
+            <div>
+                <a href="/student/dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <div class="card" style="max-width: 780px; margin: 0 auto 2rem auto;">
+            <div id="form-alert" class="alert d-none"></div>
+
+            <form id="project-form">
+                <!-- 1. Project Title -->
+                <div class="form-group">
+                    <label class="form-label" for="title">1. Project Title <span class="required">*</span></label>
+                    <input type="text" id="title" class="form-control" placeholder="e.g. Automated Campus Attendance Tracker" required minlength="3" maxlength="255">
+                    <div class="form-hint">A clear, descriptive title of your institutional project.</div>
+                </div>
+
+                <!-- 2. Project Description -->
+                <div class="form-group">
+                    <label class="form-label" for="description">2. Project Description <span class="required">*</span></label>
+                    <textarea id="description" class="form-control" rows="5" placeholder="Describe the problem, proposed solution, system architecture, and tools used..." required minlength="10" maxlength="4000"></textarea>
+                    <div class="form-hint">Minimum 10 characters, maximum 4000 characters.</div>
+                </div>
+
+                <!-- 3. Source Code File -->
+                <div class="form-group">
+                    <label class="form-label" for="sourceCodeFile">3. Source Code File (ZIP / Archive)</label>
+                    <input type="file" id="sourceCodeFile" class="form-control" accept=".zip,.tar,.gz,.7z">
+                    <div id="current-file-note" class="form-hint d-none" style="color: #0369a1;"></div>
+                    <div class="form-hint">Accepted formats: .zip, .tar.gz (Max 50MB). Stored safely on the institutional server.</div>
+                </div>
+
+                <!-- 4. Deployed Project Link -->
+                <div class="form-group">
+                    <label class="form-label" for="deployedUrl">4. Deployed Project Link (Optional)</label>
+                    <input type="url" id="deployedUrl" class="form-control" placeholder="https://myproject.institution.edu">
+                    <div class="form-hint">URL where faculty or students can test your live application. Must begin with http:// or https://</div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                    <!-- 5. Source Code Visibility -->
+                    <div class="form-group">
+                        <label class="form-label" for="sourceCodeVisibility">5. Source Code Visibility <span class="required">*</span></label>
+                        <select id="sourceCodeVisibility" class="form-control" required>
+                            <option value="FACULTY_ONLY">FACULTY_ONLY (Restricted)</option>
+                            <option value="ALL_STUDENTS">ALL_STUDENTS (Public across campus)</option>
+                        </select>
+                        <div class="form-hint">Enforced strictly on the backend. Faculty always have access.</div>
+                    </div>
+
+                    <!-- 6. Deployed Link Visibility -->
+                    <div class="form-group">
+                        <label class="form-label" for="deployedLinkVisibility">6. Deployed Link Visibility <span class="required">*</span></label>
+                        <select id="deployedLinkVisibility" class="form-control" required>
+                            <option value="ALL_STUDENTS" selected>ALL_STUDENTS (Public across campus)</option>
+                            <option value="FACULTY_ONLY">FACULTY_ONLY (Restricted)</option>
+                        </select>
+                        <div class="form-hint">Select who can see and click your deployed live application link.</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end;">
+                    <a href="/student/dashboard.html" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Submit Project</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            StudentApp.initProjectForm();
+        });
+    </script>
+</body>
+</html>

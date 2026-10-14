@@ -1,0 +1,35 @@
+PROJECT
+Title: Campus Mate
+Batch: A06
+Authors: Priya Sharma, Rahul Verma
+Description: AI based college assistance chatbot system designed to answer campus queries, library timings, and course registrations.
+Technologies: Java, Spring Boot, MySQL, NLP
+---
+PROJECT
+Title: AI Interview Simulation
+Batch: A07
+Authors: Rohan Mehta, Ananya Iyer
+Description: Generative AI interview simulator providing real-time question generation, candidate speech evaluation, and feedback scoring.
+Technologies: Java, Python, OpenAI, Groq
+---
+PROJECT
+Title: Decentralized Hospital Record Exchange
+Batch: A06
+Authors: David Chen, Vikram Patel
+Description: Privacy-preserving healthcare portal allowing patients to securely share electronic health records across clinics.
+Technologies: Blockchain, Solidity, Java, React
+---
+PROJECT
+Title: Automated Drone Navigation in Indoor Arenas
+Batch: A07
+Authors: Sarah Jenkins, Kevin Liu
+Description: Visual odometry and ultrasonic obstacle avoidance system for miniature quadcopters in GPS-denied environments.
+Technologies: Python, ROS, OpenCV, C++
+---
+PROJECT
+Title: Smart Campus Energy Metering
+Batch: A05
+Authors: Arjun Nair, Divya Rao
+Description: IoT wireless sensor network measuring building energy consumption and predicting peak load using machine learning.
+Technologies: IoT, Python, MQTT, TimeSeries DB
+---

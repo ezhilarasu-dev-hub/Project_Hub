@@ -1,0 +1,57 @@
+target/
+build/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Secrets & Environment ###
+.env
+.env.local
+.env.*.local
+
+### Logs ###
+logs/
+*.log
+
+### SQLite Database Files ###
+*.db
+*.db-shm
+*.db-wal
+
+### Uploads (preserve directory structure via .gitkeep) ###
+uploads/*
+!uploads/.gitkeep
+!uploads/projects/
+uploads/projects/*
+!uploads/projects/.gitkeep
+
+### Ensure Maven wrappers are tracked ###
+!mvnw
+!mvnw.cmd
+!mvnw.ps1
+!.mvn/

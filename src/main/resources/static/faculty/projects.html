@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Student Projects - Faculty Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/faculty.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Manage Student Projects</h1>
+                <div class="subtitle">Search, filter, inspect source code, and moderate submissions</div>
+            </div>
+            <div>
+                <a href="/faculty/dashboard.html" class="btn btn-secondary">&larr; Back to Dashboard</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <!-- Filter Bar -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+                <div style="flex: 1; min-width: 250px;">
+                    <input type="text" id="faculty-search-input" class="form-control" placeholder="Search by project title, student name, or email...">
+                </div>
+                <div style="width: 200px;">
+                    <select id="faculty-status-filter" class="form-control">
+                        <option value="ALL">All Statuses</option>
+                        <option value="SUBMITTED">Submitted (Pending)</option>
+                        <option value="APPROVED">Approved</option>
+                        <option value="REJECTED">Rejected</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Title</th>
+                            <th>Student Information</th>
+                            <th>Code Visibility</th>
+                            <th>Status</th>
+                            <th>Submitted Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="faculty-projects-tbody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: #64748b; padding: 2rem;">Loading student submissions...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            FacultyApp.initProjectsList();
+        });
+    </script>
+</body>
+</html>

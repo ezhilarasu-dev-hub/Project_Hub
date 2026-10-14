@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/student.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Welcome, <span id="student-welcome-name">Student</span></h1>
+                <div class="subtitle">Student Academic Project Management Dashboard</div>
+            </div>
+            <div>
+                <a href="/student/project-form.html" class="btn btn-primary">+ Submit Project</a>
+            </div>
+        </div>
+
+        <!-- Student Summary Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">My Total Projects</div>
+                <div class="stat-value" id="my-total-projects">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Approved Projects</div>
+                <div class="stat-value" id="my-approved-projects" style="color: #166534;">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pending Review</div>
+                <div class="stat-value" id="my-pending-projects" style="color: #92400e;">0</div>
+            </div>
+        </div>
+
+        <!-- My Projects Table -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 class="card-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">My Submitted Projects</h3>
+                <a href="/student/projects.html" class="btn btn-secondary btn-sm">View All &rarr;</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Title</th>
+                            <th>Status</th>
+                            <th>Date Submitted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="my-recent-projects-tbody">
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: #64748b; padding: 2rem;">Loading projects...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            StudentApp.initDashboard();
+        });
+    </script>
+</body>
+</html>

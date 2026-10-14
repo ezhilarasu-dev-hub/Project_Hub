@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institution Project Hub</title>
+    <script src="/js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (Auth.isAuthenticated()) {
+                const user = Auth.getCurrentUser();
+                if (user && user.role === 'FACULTY') {
+                    window.location.href = '/faculty/dashboard.html';
+                } else {
+                    window.location.href = '/student/dashboard.html';
+                }
+            } else {
+                window.location.href = '/login.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <p style="text-align: center; margin-top: 3rem; font-family: sans-serif; color: #64748b;">
+        Redirecting to Institution Project Hub...
+    </p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Institution Project Hub</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/auth.js"></script>
+    <script src="/js/projects.js"></script>
+    <script src="/js/student.js"></script>
+    <script src="/js/ai-chat.js"></script>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+
+    <main class="main-container">
+        <div class="page-header">
+            <div>
+                <h1>Project Overview</h1>
+                <div class="subtitle">Detailed submission record and institutional permissions</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+                <div id="owner-actions" class="d-none"></div>
+                <a href="/student/projects.html" class="btn btn-secondary">&larr; Back to Projects</a>
+            </div>
+        </div>
+
+        <div id="project-details-card" class="card" style="max-width: 860px; margin: 0 auto 2rem auto;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+                <div>
+                    <h2 id="detail-title" style="color: var(--primary-dark); font-size: 1.4rem; margin-bottom: 0.25rem;">Loading Title...</h2>
+                    <div style="font-size: 0.88rem; color: var(--text-muted);">
+                        Submitted by: <strong id="detail-student" style="color: #334155;">-</strong>
+                    </div>
+                </div>
+                <div id="detail-status"></div>
+            </div>
+
+            <!-- Metadata table -->
+            <div style="background-color: #f8fafc; border: 1px solid var(--border-light); border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.88rem;">
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Submission Date</div>
+                    <div id="detail-created" style="font-weight: 600;">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Last Updated</div>
+                    <div id="detail-updated" style="font-weight: 600;">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Source Code Visibility</div>
+                    <div id="detail-src-vis">-</div>
+                </div>
+                <div>
+                    <div style="color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">Deployed Link Visibility</div>
+                    <div id="detail-dep-vis">-</div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div style="margin-bottom: 1.75rem;">
+                <h4 class="card-title">Abstract &amp; Project Description</h4>
+                <div id="detail-description" style="font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; color: #334155;">-</div>
+            </div>
+
+            <!-- Live Deployed Link -->
+            <div style="margin-bottom: 1.75rem; padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem;">Deployed Application</h4>
+                <div id="detail-deployed-section"></div>
+            </div>
+
+            <!-- Source Code File -->
+            <div style="padding-top: 1rem; border-top: 1px solid var(--border-light);">
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem;">Source Code Archive</h4>
+                <div id="detail-download-section"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="institutional-footer">
+        &copy; 2026 Institution Project Hub. Academic Project Management System.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            StudentApp.initProjectDetails();
+        });
+    </script>
+</body>
+</html>
